@@ -1,0 +1,12 @@
+[audio, sampleRate] = audioread('C:\Users\ZAHID FAHIM\Downloads\Music\Recording (2).m4a'); %select your audio path
+
+normalizedAudio = normalize(audio);
+gain = 1;  % Adjust the gain value as needed
+amplifiedAudio = normalizedAudio * gain;
+sound(amplifiedAudio, sampleRate);
+audiowrite('C:\Users\ZAHID FAHIM\Downloads\Music\Recording (2).m4a', amplifiedAudio, sampleRate);
+time = (0:length(audio)-1) / sampleRate;
+plot(time, amplifiedAudio, 'r', 'LineWidth', 1.5);
+xlabel('Time (seconds)');
+ylabel('Amplitude');
+title('Amplified Audio Signal');
